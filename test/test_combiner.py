@@ -1,8 +1,8 @@
 import pytest
 
-from src.combine import combine_sorted
+from combine_sorted.combine import combine_sorted
 
-from src.stream_queue import AscendingStreamQueue, StreamQueue
+from combine_sorted.stream_queue import AscendingStreamQueue, StreamQueue
 
 
 @pytest.fixture
