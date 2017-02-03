@@ -30,6 +30,10 @@ class StreamQueue:
         except StopIteration:
             self.done = True
 
+    def __lt__(self, other):
+        # this is a hack to make it so StreamQueue's can exist as tuple entries in heaps.
+        return 0
+
 
 # We can also just make a version where we can pass in constraints instead of making different subclasses.
 # But it's probably too much work for this little script.
@@ -50,5 +54,6 @@ class AscendingStreamQueue(StreamQueue):
         except StopIteration:
             self.done = True
 
-class ChunkedFileStreamQueue(StreamQueue):
-    pass
+# class ChunkedFileStreamQueue(StreamQueue):
+#     def __init__(self, file, src: Iterable):
+

@@ -35,7 +35,7 @@ If you don't have pytest installed, you can install it with:
 
 ## Generate Test Files
 
-    python ./src/gen_test_files.py
+    python ./tools/gen_test_files.py
 
 ## Analysis
 
@@ -56,7 +56,7 @@ a line. If we switch our system to partial reads, we can bind our memory footpri
 to hold some constant amount of data per file at any given moment. The best result for chunksize should be found via
 profiling.
 
-[ ] Min Heap to choose next min line. Checking for the min every time is O(F) where F is the number of files we have.
+[X] Min Heap to choose next min line. Checking for the min every time is O(F) where F is the number of files we have.
 If we have a million files, this becomes problematic because we will need to examine a million elements for every line
 choice. This would cause an `O(FL)` runtime. If we maintain a min heap for choosing the next lowest valued line we can
 bound our combined finding/removing and inserting the next element from the chosen stream to `O(log(L))` which would
@@ -64,7 +64,7 @@ make our total runtime for this bottleneck `O(Flog(L))`
 
 [ ] Concurrently handle reads in the background
 
-[ ] Generate lots and lots of test files
+[X] Generate lots and lots of test files
 
 ### Second choice: In Memory Data Store (probably `redis`)
 Read files and dump all lines as entries into an in memory data store.
