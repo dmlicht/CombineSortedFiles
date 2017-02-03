@@ -32,6 +32,11 @@ If you don't have pytest installed, you can install it with:
 
     sh test.sh
 
+
+## Generate Test Files
+
+    python ./src/gen_test_files.py
+
 ## Analysis
 
 Implemented Solution: Simultaneous batched file reads
@@ -58,6 +63,8 @@ bound our combined finding/removing and inserting the next element from the chos
 make our total runtime for this bottleneck `O(Flog(L))`
 
 [ ] Concurrently handle reads in the background
+
+[ ] Generate lots and lots of test files
 
 ### Second choice: In Memory Data Store (probably `redis`)
 Read files and dump all lines as entries into an in memory data store.
