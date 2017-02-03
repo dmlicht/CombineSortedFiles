@@ -13,7 +13,10 @@ Get help:
     python -h
 
 ## Installation
-TODO
+
+From the root directory:
+
+    pip install -e .
 
 ## Dependencies
 

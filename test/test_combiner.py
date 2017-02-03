@@ -1,7 +1,6 @@
 import pytest
 
 from combine_sorted.combine import combine_sorted
-
 from combine_sorted.stream_queue import AscendingStreamQueue, StreamQueue
 
 

@@ -1,10 +1,10 @@
 from typing import Generator, Sequence
 import heapq
 
-from combine_sorted.stream_queue import StreamQueue
+from combine_sorted.stream_queue import AscendingStreamQueue
 
 
-def combine_sorted(streams: Sequence[StreamQueue]) -> Generator:
+def combine_sorted(streams: Sequence[AscendingStreamQueue]) -> Generator:
     last_seen = None
 
     heap = [(stream.peek(), stream) for stream in streams]

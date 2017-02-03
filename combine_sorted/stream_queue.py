@@ -54,6 +54,6 @@ class AscendingStreamQueue(StreamQueue):
         except StopIteration:
             self.done = True
 
+# TODO: explore writing a version of StreamQueue that doesn't keep its file open the whole time.
 # class ChunkedFileStreamQueue(StreamQueue):
 #     def __init__(self, file, src: Iterable):
-
