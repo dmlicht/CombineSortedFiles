@@ -32,22 +32,32 @@ If you don't have pytest installed, you can install it with:
 
     sh test.sh
 
-## Roadmap
-
-### File IO
-
-- Add basic file reads
-- Add chunked file reads
-- Multithreading reads in the background
-
-
-- Min Heap to choose next min line
--
-
-
 ## Analysis
 
-### Implemented Solution: Simultaneous batched file reads
+Implemented Solution: Simultaneous batched file reads
+
+Definititions:
+
+* `F` number of files
+* `L` total number of lines counted among all files
+* `N` number of characters on a line
+
+## Roadmap
+
+[ ] Add chunked file reads (so we don't get overwhelmed in terms of memory or have to keep a million files open at once).
+We currently have a **large** memory bottleneck. We are reading all of the files into memory upfront. Our memory footprint is
+currently `O(LN)` where `L` is the number of lines in our dataset and `N` is the number of characters that can occur on
+a line. If we switch our system to partial reads, we can bind our memory footprint at `O(F)` because we will only need
+to hold some constant amount of data per file at any given moment. The best result for chunksize should be found via
+profiling.
+
+[ ] Min Heap to choose next min line. Checking for the min every time is O(F) where F is the number of files we have.
+If we have a million files, this becomes problematic because we will need to examine a million elements for every line
+choice. This would cause an `O(FL)` runtime. If we maintain a min heap for choosing the next lowest valued line we can
+bound our combined finding/removing and inserting the next element from the chosen stream to `O(log(L))` which would
+make our total runtime for this bottleneck `O(Flog(L))`
+
+[ ] Concurrently handle reads in the background
 
 ### Second choice: In Memory Data Store (probably `redis`)
 Read files and dump all lines as entries into an in memory data store.
