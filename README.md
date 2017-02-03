@@ -28,9 +28,9 @@ If you don't have pytest installed, you can install it with:
 
     pip install pytest
 
- Then you can run tests with:
+ Then from the root directory you can run tests with:
 
-    pytest
+    sh test.sh
 
 ## Roadmap
 
