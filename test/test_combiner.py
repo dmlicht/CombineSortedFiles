@@ -2,7 +2,7 @@ import pytest
 
 from src.utils import StreamQueue, combine_sorted
 
-from src.utils import AscendingEnforcedStreamQueue
+from src.utils import AscendingStreamQueue
 
 
 @pytest.fixture
@@ -57,7 +57,7 @@ def test_combine_sorted(first_list, second_list, expected_result):
 
 def test_dont_add_duplicates(first_list, second_list, third_list, expected_result):
     streams = [
-        AscendingEnforcedStreamQueue(li) for li in [first_list, second_list, third_list]
+        AscendingStreamQueue(li) for li in [first_list, second_list, third_list]
         ]
 
     result = list(combine_sorted(streams))
@@ -65,6 +65,6 @@ def test_dont_add_duplicates(first_list, second_list, third_list, expected_resul
 
 
 def test_exception_with_improperly_sorted_input(first_list, improperly_sorted_list):
-    streams = [AscendingEnforcedStreamQueue(first_list), AscendingEnforcedStreamQueue(improperly_sorted_list)]
+    streams = [AscendingStreamQueue(first_list), AscendingStreamQueue(improperly_sorted_list)]
     with pytest.raises(Exception):
         list(combine_sorted(streams))
