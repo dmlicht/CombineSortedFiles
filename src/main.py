@@ -15,7 +15,7 @@ def main():
     path = args.directory
     files = files_in_path(path)
 
-    streams = [AscendingStreamQueue(open(file).readlines()) for file in files]
+    streams = [AscendingStreamQueue(open(file).read().splitlines()) for file in files]
     for line in combine_sorted(streams):
         print(line)
 
