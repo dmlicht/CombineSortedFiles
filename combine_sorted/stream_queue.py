@@ -49,3 +49,6 @@ class AscendingStreamQueue(StreamQueue):
 
         except StopIteration:
             self.done = True
+
+class ChunkedFileStreamQueue(StreamQueue):
+    pass

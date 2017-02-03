@@ -1,11 +1,11 @@
 from typing import List, Generator, Sequence
 
-from src.stream_queue import StreamQueue
+from combine_sorted.stream_queue import StreamQueue
 
 
 def combine_sorted(streams: Sequence[StreamQueue]) -> Generator:
     last_seen = None
-    while len(streams) != 0:
+    while len(streams) > 0:
         ## TODO: if you have millions of files this check can become a bottle neck, but can be improved by storing peeked values in a min heap
         next_stream = get_next_stream(streams)
         next_el = next_stream.pop()

@@ -15,11 +15,13 @@ def gen_random_block(n_lines, max_line_length):
     return [gen_random_line(random.choice(range(max_line_length))) for _ in range(n_lines)]
 
 
+# TODO: Add command args
 def main():
     for ii in range(N_FILES):
         row_length = random.choice(range(MAX_ROW_LENGTH))
         n_rows = random.choice(range(MAX_N_ROWS))
-        open(TEST_FILE_DIR + "test" + str(ii) + ".txt", 'w').writelines('\n'.join(gen_random_block(row_length, n_rows)))
+        block = sorted(gen_random_block(row_length, n_rows))
+        open(TEST_FILE_DIR + "test" + str(ii) + ".txt", 'w').writelines('\n'.join(block))
 
 
 if __name__ == '__main__':
