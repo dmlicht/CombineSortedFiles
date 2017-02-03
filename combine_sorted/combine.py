@@ -1,6 +1,6 @@
 from typing import List, Generator, Sequence
 
-from combine_sorted.stream_queue import StreamQueue
+from stream_queue import StreamQueue
 
 
 def combine_sorted(streams: Sequence[StreamQueue]) -> Generator:

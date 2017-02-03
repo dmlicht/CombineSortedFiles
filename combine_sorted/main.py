@@ -3,8 +3,8 @@ import os
 
 from os.path import isfile
 
-from combine_sorted.stream_queue import AscendingStreamQueue
-from combine_sorted.combine import combine_sorted
+from stream_queue import AscendingStreamQueue
+from combine import combine_sorted
 
 
 def main():

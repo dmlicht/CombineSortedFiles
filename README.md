@@ -6,7 +6,7 @@ to your new gigantic file (or log).
 ## Usage
 sort a directory:
 
-    python combine_sorted.py the/path/to/your/directory/filled/with/sorted/files
+    python combine_sorted/main.py the/path/to/your/directory/filled/with/sorted/files
 
 Get help:
 
