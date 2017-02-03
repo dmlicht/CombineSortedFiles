@@ -1,6 +1,36 @@
 # Combine Sorted Files
+Have a bunch of sorted files you want to merge together into an **even bigger** sorted file?
+You can use `combine_sorted` to print all of the lines from your files to the standard out then pipe them
+to your new gigantic file (or log).
 
+## Usage
+sort a directory:
 
+    python combine_sorted.py the/path/to/your/directory/filled/with/sorted/files
+
+Get help:
+
+    python -h
+
+## Installation
+TODO
+
+## Dependencies
+
+Runtime:
+* python 3
+
+Test:
+* pytest
+
+## Run Tests
+If you don't have pytest installed, you can install it with:
+
+    pip install pytest
+
+ Then you can run tests with:
+
+    pytest
 
 ## Roadmap
 
