@@ -1,8 +1,8 @@
 import pytest
 
-from src.utils import StreamQueue, combine_sorted
+from src.combine import combine_sorted
 
-from src.utils import AscendingStreamQueue
+from src.stream_queue import AscendingStreamQueue, StreamQueue
 
 
 @pytest.fixture
@@ -49,7 +49,7 @@ def expected_result():
     ]
 
 
-def test_combine_sorted(first_list, second_list, expected_result):
+def test_base_stream_queue(first_list, second_list, expected_result):
     streams = [StreamQueue(first_list), StreamQueue(second_list)]
 
     assert list(combine_sorted(streams)) == expected_result
