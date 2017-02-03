@@ -3,6 +3,8 @@ import os
 
 from os.path import isfile
 
+from src.utils import AscendingStreamQueue, combine_sorted
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -13,9 +15,9 @@ def main():
     path = args.directory
     files = files_in_path(path)
 
-    for file in files:
-        
-        print(open(file).readlines())
+    streams = [AscendingStreamQueue(open(file).readlines()) for file in files]
+    for line in combine_sorted(streams):
+        print(line)
 
 
 def files_in_path(path):
